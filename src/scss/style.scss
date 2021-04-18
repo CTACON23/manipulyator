@@ -1,0 +1,385 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto";
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto-Light.ttf') format('truetype');
+    font-weight: 300;
+}
+@font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto-Regular.ttf') format('truetype');
+    font-weight: 400;
+}
+@font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto-Medium.ttf') format('truetype');
+    font-weight: 500;
+}
+@font-face {
+    font-family: 'Proxima';
+    src: url('../fonts/ProximaNova-Bold.ttf') format('truetype');
+    font-weight: 700;
+}
+@font-face {
+    font-family: 'Montserat';
+    src: url('../fonts/Montserrat-Regular.ttf') format('truetype');
+    font-weight: 400;
+}
+$base-color: #FCE400;
+$padding: 0 325px;
+
+@mixin maxWidth($padding) {
+    .header,.main__features,.main__benefits,.main__technics-list-item{
+        padding: $padding;
+    }
+}
+
+@media (min-width: 1800px){
+    @include maxWidth($padding: 0 325px);
+}
+@media (max-width:1800px){
+    @include maxWidth($padding: 0 225px);
+}
+@media (max-width:1600px){
+    @include maxWidth($padding: 0 125px);
+}
+
+@media (max-width:1440px){
+    @include maxWidth($padding: 0 75px);
+}
+@media (max-width:1270px){
+    @include maxWidth($padding: 0 25px);
+}
+@media (max-width:375px){
+    @include maxWidth($padding: 0 5px);
+}
+
+
+.header{
+    height: 70px;
+    background-color: $base-color;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    a{
+        color:#41403A;
+        text-decoration: none;
+    }
+    &__logo{
+        font-size:36px;
+    }
+    &__phones{
+        font-size:24px;
+        a{
+            margin-left: 2rem;
+        }
+    }
+}
+.main{
+    &__features{
+        height: 800px;
+        background: linear-gradient(90deg, rgba(0,0,0,0.57) 0%, rgba(0,0,0,0.57) 100%),url("../images/main_fon.jpg");
+        background-size: cover;
+        background-position: center;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        &-heading{
+            font-size:71px;
+            font-family: 'Proxima';
+            margin: 2rem 0;
+        }
+        &-list{
+            font-size:38px;
+            li{
+                margin:.5rem 0;
+                list-style: none;
+                font-weight: 500;
+                &::before{
+                    content: '';
+                    background-color:$base-color;
+                    width: 20px;
+                    height: 20px;
+                    display: inline-block;
+                    border-radius: 100%;
+                    margin-right:1rem ;
+                }
+            }
+        }
+    }
+    &__benefits{
+        // display: flex;
+        // flex-direction: column;
+        // justify-content: center;
+        padding-top: 7rem;
+        padding-bottom: 7rem;
+        &-heading{
+            font-size:48px;
+            text-align: center;
+            span{
+                background-color:$base-color;
+                padding: .5rem;
+            }
+        }
+        &-list{
+            display: flex;
+            padding: 4rem 0;
+            &-item{
+                flex:1;
+                text-align: center;
+                align-self: flex-end;
+                h5{
+                    font-size:15px;
+                    font-weight: 500;
+                    padding: 1rem 0;
+                }
+                p{
+                    font-size:14px;
+                    color:#686868;
+                    font-weight: 300;
+                }
+            }
+        }
+    }
+    &__technics{
+        &-heading{
+            padding-bottom: 60px;
+        }
+        &-list{
+            
+            &-item{
+                display: flex;
+                padding-top:70px;
+                padding-bottom:70px;
+                min-height: 527px;
+                box-sizing: border-box;
+                &.tech:nth-child(odd){
+                    background-color:#FBFBFB;
+                }
+                &.call{
+                    background-image: url('../images/call_fon.jpg');
+                    align-items: center;
+                    .call-text{
+                        flex:1.1;
+                        h2{
+                            font-size:61px;
+                            font-weight: 500;
+                        }
+                    }
+                    .call-phones{
+                        div{
+                            box-shadow: 0px 4px 4px 0px #0000007A;
+                            max-width: 471px;
+                            min-height: 215px;
+                            margin: 0 auto;
+                            background-color:rgba(252, 228, 0, 0.85);
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            justify-content: center;
+                            a{
+                                font-size:34px;
+                                color:#41403A;
+                                text-decoration: none;
+                                margin:10px
+                            }
+                        }
+                    }
+                }
+                &>div{
+                    flex:1;
+                    h3{
+                        font-size:28px;
+                        font-weight: 500;
+                    }
+                    table{
+                        padding: 2.5rem 0;
+                        width: 100%;
+                        td{
+                            padding: 5px 0;
+                            &:nth-child(2){
+                                text-align: end;
+                            }
+                        }
+                    }
+                    &.item-photos{
+                        display: inline-flex;
+                        flex-wrap: wrap;
+                        align-content: space-between;
+                        text-align: end;
+                        &>div{
+                            width: 50%;
+                            display: inline;
+                            &:hover{
+                                img{
+                                    opacity: .5;
+                                    transition: all .2s ease-in;
+                                }
+                            }
+                            a{
+                                img{
+                                    max-width: 281px;
+                                    max-height: 183px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.footer{
+    text-align: center;
+    color: white;
+    background-color: #41403A;
+    &__phones{
+        min-height: 243px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        &>*{
+            display: block;
+        }
+        h2{
+            color: $base-color;
+            font-size:38px;
+            font-weight: 500;
+        }
+        a{
+            color:white;
+            text-decoration: none;
+            font-size:34px;
+        }
+    }
+    &__copyright{
+        height: 26px;
+        p{
+            font-family: 'Montserat';
+        }
+    }
+}
+
+@media (max-width:1130px){
+    .main__benefits-list{
+        flex-wrap: wrap;
+    }
+    .main__benefits-list-item{
+        width: 50%;
+        flex: auto;
+        &:nth-child(1), &:nth-child(2){
+            margin-bottom: 5rem;
+        }
+    }
+    .main__benefits-list-item p{
+        width:50%;
+        margin: 0 auto;
+    }
+    .main__technics-list-item{
+        flex-direction: column;
+    }
+    .main__technics-list-item>div.item-photos>div{
+        text-align: center;
+    }
+    .main__technics-list-item>div table{
+        width:75%
+    }
+}
+@media (max-width:950px) {
+    .header{
+        justify-content: center;
+        &__logo{
+            display: none;
+        }
+    }   
+}
+
+@media (max-width:768px){
+    .main__features-heading{
+        font-size: 67px;
+    }
+    .main__technics-list-item.call{
+        background-image: none;
+        background-color: $base-color;
+        align-items: baseline;
+        .call-phones div{
+            box-shadow: none;
+            background-color: none;
+            a{
+                font-size:51px;
+                margin: 10px 0;
+            }
+        }
+    }
+    
+}
+@media(max-width:630px){
+    .main__technics-list-item>div.item-photos>div{
+        width:100%
+    }
+}
+@media(max-width:575px){
+    .header__phones{
+        font-size: 15px;
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        a{
+            margin: 0;
+        }
+    }
+    .main__features-heading{
+        font-size: 33px;
+    }
+    .main__features-list{
+        font-size: 22px;
+    }
+    .main__benefits-list-item{
+        width: 100%;
+    }
+    .main__technics-list-item>div.item-photos>div:not(:first-child){
+        display: none;
+    }
+    .main__technics-list-item>div.item-photos>div a img{
+        max-height: inherit;
+        max-width: inherit;
+        width: 100%;
+    }
+    .main__technics-list-item>div table{
+        width: 100%;
+    }
+    .main__benefits-list-item{
+        margin-bottom:0 !important;
+    }
+    .main__benefits-list-item:not(:first-child){
+        margin-top: 5rem;
+    }
+    .main__technics-list-item.call .call-text h2{
+        font-size: 45px;
+    }
+}
+
+@media (max-width:425px){
+    .main__benefits-heading{
+        font-size:26px
+    }
+    .main__technics-list-item>div h3{
+        font-size: 20px;
+    }
+    .main__technics-list-item.call .call-text h2{
+        font-size:35px
+    }
+    .main__technics-list-item.call .call-phones div a{
+        font-size:32px
+    }
+    .footer__phones a{
+        font-size: 24px;
+    }
+}
+
